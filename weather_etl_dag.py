@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.email import EmailOperator
 from datetime import datetime, timedelta
 import requests
 import pandas as pd
@@ -66,6 +67,8 @@ def load():
 
 
 def load():
+    # Here AWS Access key and Secret keys are used for authentication
+    # These keys are stored in my config file
     s3 = boto3.client('s3')
     local_file = "/tmp/weather_transformed.csv"
     bucket_name = "ajeet-weather-data-airflow"  # Use your actual bucket name
@@ -102,5 +105,12 @@ with DAG(
         python_callable=load
     )
 
-    task1 >> task2 >> task3
+    notify = EmailOperator(
+    task_id='send_email_notification',
+    to='ajeetsinghcet05@gmail.com',
+    subject='Weather ETL: Upload Successful',
+    html_content="""<h3>The weather data file has been uploaded to S3 successfully.</h3>""",
+    )
 
+    
+    task1 >> task2 >> task3 >> notify
