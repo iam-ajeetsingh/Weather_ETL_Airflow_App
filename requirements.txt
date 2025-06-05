@@ -1,0 +1,5 @@
+apache-airflow 
+pandas 
+requests
+psycopg2-binary
+boto3
