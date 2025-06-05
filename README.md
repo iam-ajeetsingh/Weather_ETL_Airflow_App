@@ -11,10 +11,15 @@ This repository contains an **Apache Airflow** DAG that implements a **Weather E
 
 Below is a high-level architectural diagram and Apache Airflow UI showing the ETL DAG with 4 Tasks :
 
-![Airflow_ETL](https://github.com/user-attachments/assets/858e8e14-7c5e-421d-b0af-57d75e5440b4)
-![Weather_ETL_Pipeline](https://github.com/user-attachments/assets/9ddc9b0d-4f48-43ca-bc5c-b81d8ed0749a)
+![Airflow_ETL_new](https://github.com/user-attachments/assets/771f21f1-77f6-4b3f-863c-246316290c59)
 
 ---
+
+
+![Weather_ETL_Pipeline](https://github.com/user-attachments/assets/9ddc9b0d-4f48-43ca-bc5c-b81d8ed0749a)
+
+
+
 
 ## Prerequisites
 
